@@ -1,4 +1,17 @@
 import java.util.*;
+
+
+class NameComparator implements Comparator{
+    public int compare(Object o1,Object o2){
+
+        Employee e1=(Employee) o1;
+        Employee e2=(Employee) o2;
+
+        return e1.name.compareTo(e2.name);
+    }
+}
+
+
 class Employee{
     int id;
     String name;
@@ -22,6 +35,7 @@ public class EmployeeManagement
 {
     static void display(ArrayList<Employee> al)
     {
+        Collections.sort(al,new NameComparator());
         System.out.println("\n######### Details of All Employees #########\n");
         for(Employee e : al)
         {
